@@ -3,9 +3,10 @@ import { groq } from "next-sanity";
 import { sanityClient } from "../sanity.cli";
 import { Project } from "../typings";
 
-const query = groq`
-*[_type == "project"]
-`;
+const query = groq ` *[_type == "project"] {
+    ...,
+    technologies[]->
+}`;
 
 export const fetchProjects = async () => {
    
