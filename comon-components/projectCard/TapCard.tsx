@@ -41,7 +41,7 @@ const TapCard = ({project}: Props) => {
                       <motion.button onClick={() => setIsOpen(true)}>
                       
                         <div className="h-6 w-9 relative"> 
-                            <Image
+                            <img
                               src={urlFor(project?.image).url()}
                               alt="Picture of the author"
                             />
@@ -50,7 +50,7 @@ const TapCard = ({project}: Props) => {
 
                             <div className='flex flex-row'>
                             {project?.technologies.map(technologie =>(
-                                <Image
+                                <img
                                   className="h-10 w-10 rounded-full"
                                   src={urlFor(technologie.image).url()}
                                   alt=""
