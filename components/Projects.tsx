@@ -16,13 +16,13 @@ const Projects = ({projects}: Props) => {
              Project
            </h3>
            <div className='relative w-full flex overflow-x-scroll overflow-y-hidden
-                          snap-x snap-mandatory z-20
-                          scrollbar scrollbar-track-gray-400 scrollbar-thumb-amber-200 scrollbar-thin '>
-                            {
-                              projects.map(project => (
-                                <TapCard key={project._id} project={project}/>
-                              ))
-                            }
+                    snap-x snap-mandatory z-20
+                    scrollbar scrollbar-track-gray-400 scrollbar-thumb-amber-200 scrollbar-thin '>
+                      {
+                        projects.map(project => (
+                          <TapCard key={project._id} project={project}/>
+                        ))
+                      }
             </div>
             
      </motion.div>

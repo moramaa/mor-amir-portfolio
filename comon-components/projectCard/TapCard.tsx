@@ -15,7 +15,7 @@ const TapCard = ({project}: Props) => {
 
     return (
       <article
-     className='flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[500px] md:w-[500px] 
+     className='flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[500px] h-[300px] md:w-[500px] 
               xl:w-[600px] snap-center bg-[#404040] p-10 hover:opacity-100 opacity-40 cursor-pointer
               transition-opacity duration-200 overflow-hidden'>
         <motion.div layout  

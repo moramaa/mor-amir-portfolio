@@ -11,13 +11,13 @@ type Props = {
 const ExperienceCard = ({ experience }: Props) => {
   return (
     <article className="flex flex-col top-26 rounded-lg items-center space-y-7 flex-shrink w-[500px] md:w-[600px] xl:w-[900px] snap-center
-     Obg-[#292929] hover: opacity-100 opacity-40 cursor-pointer transition-opacity duration-200 overflow-hidden">
+     Obg-[#292929] hover:  opacity-40  cursor-pointer transition-opacity duration-200 overflow-hidden">
       <motion.img
         initial={{ y: -100, opacity: 0, }}
         transition={{ duration: 1.2 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="w-20 h-20 rounded-full xl:w-[200px] xl:h-[200px] object-cover
+        className="w-20 rounded-full xl:w-32 xl:h-32 object-cover
       object-center"
         src={urlFor(experience?.companyImage).url()}
         alt=""
@@ -25,7 +25,7 @@ const ExperienceCard = ({ experience }: Props) => {
 
       <div className="px-0 md:px-10">
         <h4 className="text-xl xl:text-4xl font-light">{experience.company}</h4>
-        <p className="font-bold text-2xl mt-1">{experience.jobTitle}</p>
+        <p className="font-bold text-lg xl:text-2xl mt-1">{experience.jobTitle}</p>
         <div className="flex space-x-2 my-2">
           {experience?.technologies.map(technologie => (
             <img
@@ -35,11 +35,11 @@ const ExperienceCard = ({ experience }: Props) => {
             />
           ))}
         </div>
-        <p className="uppercase py-3 text-gray-300">
+        {/* <p className="uppercase py-3 text-gray-300">
           {new Date(experience.dateStarted).toDateString()}-{" "} {experience.isCurrentlyWorkingHere
             ? "Present"
             : new Date(experience.dateEnded).toDateString()}
-        </p>
+        </p> */}
 
         <ul className="list-disc space-y-4 ml-5 text-sm xl:text-lg">
           {experience.points.map((point, i) =>

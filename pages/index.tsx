@@ -5,6 +5,8 @@ import ExperienceAndSkills from '../components/ExperienceAndSkills'
 import Header from '../components/Header'
 import Main from '../components/Main'
 import Projects from '../components/Projects'
+import Skills from '../components/Skills'
+import WorkExperience from '../components/WorkExperience'
 import { Experience, PageInfo, Project, Skill, Social } from '../typings'
 import { fetchExperiences } from '../utils/fetchExperiences'
 import { fetchPageInfo } from '../utils/fetchPageInfo'
@@ -36,15 +38,14 @@ const  Home  = ({experiences,pageInfo,projects,skills,socials}:Props) => {
       <section id="about" className='snap-start'>
       <About pageInfo={pageInfo}/>
       </section>
- <section id="experience" className='snap-start'>
-      <ExperienceAndSkills experiences={experiences} skills={skills}/>
-      </section>
-      {/* <section id="experience" className='snap-start'>
-      <Experience />
-      </section>
-      <section id="Skills" className='snap-start'>
-      <Skills />
-      </section> */}
+      <div className='flex flex-col xl:flex-row '>
+          <section id="experience" className='snap-start'>
+          <WorkExperience experiences={experiences} />
+                </section>
+          <section id="Skills" className='snap-start'>
+          <Skills skills={skills} />
+          </section>
+      </div>
       <section id="project" className='snap-start'>
       <Projects  projects={projects}/>
       </section>

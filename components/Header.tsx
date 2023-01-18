@@ -13,9 +13,9 @@ function Header({socials}: Props) {
         <motion.div
           initial={{x: -500, opacity:0, scale:0.5}} animate={{x:0, opacity:1, scale:1}} transition={{duration:1.5}}
           className='flex flex-row space-x-5 '>
+            {socials.map((social) =>(
             <motion.div
                 whileHover={{ scale: 1.2, rotate: 360 }} whileTap={{scale: 0.8, rotate: -360, borderRadius: "100%" }}  transition={{duration:1}}>
-              {socials.map((social) =>(
                 
                       <SocialIcon
                         key={social._id}
@@ -23,8 +23,8 @@ function Header({socials}: Props) {
                         bgColor="gray"
                         fgColor='transparent'
                         />
-              ))}
             </motion.div>
+              ))}
            
         </motion.div>
 
