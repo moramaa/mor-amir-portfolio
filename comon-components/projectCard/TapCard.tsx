@@ -46,7 +46,7 @@ const TapCard = ({project}: Props) => {
                               alt="Picture of the author"
                             />
                         </div> 
-                      <motion.h5 className='text-gray-500 text-2xl'>{project.summary}</motion.h5>
+                      <motion.h5 className='text-gray-500 text-lg z-100'>{project.summary}</motion.h5>
 
                             <div className='flex flex-row'>
                             {project?.technologies.map(technologie =>(

@@ -19,10 +19,10 @@ type Props = {
   experiences: Experience[]
   skills: Skill[]
   projects: Project[]
-  socials:Social[]
+  socials: Social[]
 }
 
-const  Home  = ({experiences,pageInfo,projects,skills,socials}:Props) => {
+const Home = ({ experiences, pageInfo, projects, skills, socials }: Props) => {
   return (
     <div className="bg-[rgb(36,36,36)] text-white h-screen snap-y snap-mandatory overflow-scroll z-0 scrollbar scrollbar-track-gray-400 scrollbar-thumb-amber-200 ">
       <Head>
@@ -32,30 +32,30 @@ const  Home  = ({experiences,pageInfo,projects,skills,socials}:Props) => {
       <Header socials={socials} />
 
       <section id="main" className='snap-center'>
-      <Main pageInfo={pageInfo} />
+        <Main pageInfo={pageInfo} />
       </section>
 
       <section id="about" className='snap-start'>
-      <About pageInfo={pageInfo}/>
+        <About pageInfo={pageInfo} />
       </section>
-      <div className='flex flex-col xl:flex-row '>
-          <section id="experience" className='snap-start'>
+      <div className='flex flex-col xl:flex-row justify-items-center '>
+        <section id="experience" className='snap-start'>
           <WorkExperience experiences={experiences} />
-                </section>
-          <section id="Skills" className='snap-start'>
+        </section>
+        <section id="Skills" className='snap-start'>
           <Skills skills={skills} />
-          </section>
+        </section>
       </div>
       <section id="project" className='snap-start'>
-      <Projects  projects={projects}/>
+        <Projects projects={projects} />
       </section>
     </div>
   )
 }
 export default Home;
 
-export const getStaticProps: GetStaticProps<Props>= async () => {
-  const pageInfo: PageInfo = await fetchPageInfo(); 
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const pageInfo: PageInfo = await fetchPageInfo();
   const experiences: Experience[] = await fetchExperiences();
   const skills: Skill[] = await fetchSkills();
   const projects: Project[] = await fetchProjects();
@@ -63,13 +63,13 @@ export const getStaticProps: GetStaticProps<Props>= async () => {
 
   return {
     props:
-     {
-       pageInfo,
+    {
+      pageInfo,
       experiences,
       skills,
       projects,
       socials,
     },
-    revalidate:100,
+    revalidate: 100,
   };
-  };
+};
