@@ -31,7 +31,7 @@ const ExperienceCard = ({ experience }: Props) => {
             <img
               className="h-6 md:h-10 md:w-10 rounded-full"
               src={urlFor(technologie.image).url()}
-              alt=""
+              alt="img"
             />
           ))}
         </div>

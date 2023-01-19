@@ -16,15 +16,14 @@ function Header({ socials }: Props) {
         {socials.map((social) => (
           <motion.div key={social._id}
             whileHover={{ scale: 1.2, rotate: 360 }} whileTap={{ scale: 0.8, rotate: -360, borderRadius: "100%" }} transition={{ duration: 1 }}>
-
             <SocialIcon
-
               url={social.url}
               bgColor="gray"
               fgColor='transparent'
             />
           </motion.div>
         ))}
+      
 
       </motion.div>
 
@@ -37,8 +36,10 @@ function Header({ socials }: Props) {
           animate={{ scale: [0.7, 1, 1, 0.7], }} transition={{ duration: 2, ease: "easeInOut", times: [0, 1, 1], repeat: Infinity, repeatDelay: 2 }}         >
           Get In Touch
         </motion.p>
+
         <p className='text-sm text-gray-400'>
-          054-7932141</p>
+          <a href="tel://+79245793214">054-7932141</a>
+        </p>
       </motion.div>
     </header>
 
