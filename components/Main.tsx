@@ -21,7 +21,7 @@ const Main = ({pageInfo}: Props) => {
           >
               <img
                 className=' md:mb-0 flex-shrink-0 w-56 h-56 rounded-full object-cover'   
-                src={urlFor(pageInfo?.profilePic).url()}
+                src={urlFor(pageInfo?.mainImage).url()}
                 alt="profile"
                 />
         </motion.div>

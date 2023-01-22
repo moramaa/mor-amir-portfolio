@@ -20,7 +20,7 @@ interface SanityBody
     backgroundInformation: string;
     email: string;
     role: string;
-    heroImage: Image;
+    mainImage: Image;
     name: string;
     phoneNumber: string; 
     profilePic: Image;
