@@ -34,7 +34,7 @@ function Header({ socials }: Props) {
         <motion.p className='flex-col md:inline-flex text-sm text-gray-400'
           animate={{ scale: [0.7, 1, 1, 0.7], }} transition={{ duration: 2, ease: "easeInOut", times: [0, 1, 1], repeat: Infinity, repeatDelay: 2 }}         >
           <a href="mailto:imoramira@gmail.com?subject=Invitation to a job interview"
-            target="_blank" rel="noopener">
+           >
             Send me hi
           </a>
         </motion.p>
