@@ -31,14 +31,14 @@ const Home = ({ experiences, pageInfo, projects, skills, socials }: Props) => {
 
       <Header socials={socials} />
 
-      <section id="main" className='snap-center'>
+      <section id="main" className='snap-start'>
         <Main pageInfo={pageInfo} />
       </section>
 
       <section id="about" className='snap-start'>
         <About pageInfo={pageInfo} />
       </section>
-      <div className='flex flex-col xl:flex-row justify-items-center '>
+      <div className='flex flex-col xl:flex-row justify-evenly mx-auto items-center  '>
         <section id="experience" className='snap-start'>
           <WorkExperience experiences={experiences} />
         </section>

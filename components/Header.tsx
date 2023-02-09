@@ -40,7 +40,7 @@ function Header({ socials }: Props) {
         </motion.p>
 
         <p className='text-sm text-gray-400'>
-          <a href="tel://+97245793214">054-7932141</a>
+          <a href="tel://+972547932141">054-7932141</a>
         </p>
       </motion.div>
     </header>

@@ -15,7 +15,7 @@ const Projects = ({projects}: Props) => {
            <h3 className='absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl'>
              Project
            </h3>
-           <div className='relative w-full flex overflow-x-scroll overflow-y-hidden
+           <div className='relative  flex overflow-x-scroll overflow-y-hidden
                     snap-x snap-mandatory z-20
                     scrollbar scrollbar-track-gray-400 scrollbar-thumb-amber-200 scrollbar-thin '>
                       {

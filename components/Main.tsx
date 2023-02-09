@@ -13,7 +13,7 @@ const Main = ({pageInfo}: Props) => {
     <div 
     className='flex flex-col relative h-screen text-center md:text-left md:flex-row max-w-7xl px-10 justify-evenly mx-auto items-center'>
         <h3 className='absolute top-24 uppercase tracking-[20px] text-gray-500 text-4xl text-center'>{pageInfo.name}</h3>
-        <h4 className='absolute top-24 mt-8 uppercase tracking-[10px] text-gray-500 text-3xl text-center'>{pageInfo.role} </h4>
+        <h4 className='absolute top-24 mt-10 uppercase tracking-[10px] text-gray-500 text-3xl text-center'>{pageInfo.role} </h4>
        
         <motion.div
         className='mt-40 md:mt-10'
