@@ -14,38 +14,43 @@ const TapCard = ({ project }: Props) => {
   const toggleOpen = () => setIsOpen(!isOpen);
 
   return (
-    <article
-      className='flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[250px] h-[300px] md:w-[500px] 
-              xl:w-[600px] snap-center bg-[#404040] p-10 hover:opacity-100 opacity-40 cursor-pointer
-              transition-opacity duration-200 overflow-hidden'>
+    <article className="flex flex-col top-26 rounded-lg items-center space-y-7 flex-shrink
+     min-h-max
+      snap-center
+     Obg-[#292929] hover:  opacity-80  cursor-pointer transition-opacity duration-200 overflow-hidden">
       <motion.div layout
         key="modal1"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
+
+        exit={{ opacity: 0, transition: { duration: 1 } }}
+
         onClick={toggleOpen} >
 
-        <h5>{project.title} </h5>
-        {isOpen &&
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0, transition: { duration: 0.15 } }}
-            transition={{ duration: 0.2, delay: 0.15 }}
-            style={{ pointerEvents: "auto" }}
-            className="flex flex-col rounded-lg items-center
-                      h-[300px] w-[250px] md:h-[200px] w-[300px] xl:h-[600px] w-[700px]
-                      p-10 bg-[#251f1f]
-                        hover: opacity-100 cursor-pointer transition-opacity duration-200 overflow-hidden"
-          >
-
-            <motion.button onClick={() => setIsOpen(true)}>
-
-              <div className="h-6 w-9 relative">
+        <div className="h-24 w-24 relative">
+               <h4>{project.title} </h4>
                 <img
                   src={urlFor(project?.image).url()}
                   alt="Picture of the author"
                 />
               </div>
+        {isOpen &&
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 , scale: 1.5,
+            }}
+           
+            onClick={toggleOpen}
+            className="flex flex-col rounded-lg items-center
+                       min-h-fit
+                       min-w-fit
+                       bg-[#474242] 
+                        hover: opacity-100 cursor-pointer transition-opacity duration-200 overflow-hidden"
+          >
+
+            <motion.button onClick={() => setIsOpen(true)}>
+
+              
               <motion.h5 className='text-gray-500 text-lg z-100'>{project.summary}</motion.h5>
 
               <div className='flex flex-row'>
