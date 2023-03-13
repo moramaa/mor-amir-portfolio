@@ -51,11 +51,12 @@ interface SanityBody
             }
 
         export interface Project extends SanityBody {
-        title: string; I
+        title: string; 
         _type: "project";
         image: Image;
         linkToBuild: string;
         summary: string;
+        subSummary: string;
         technologies: Technology [];
         }
         export interface Social extends SanityBody {

@@ -16,7 +16,7 @@ const Main = ({pageInfo}: Props) => {
         <h4 className='absolute top-24 mt-10 uppercase tracking-[10px] text-gray-500 text-3xl text-center'>{pageInfo.role} </h4>
        
         <motion.div
-        className='mt-40 md:mt-10'
+        className='mt-40 md:mt-10'  
             initial={{x: 0, opacity:0, scale:0.5}} whileInView={{ opacity:1, x:0}} transition={{duration:1.2}} 
           >
               <img
@@ -26,7 +26,6 @@ const Main = ({pageInfo}: Props) => {
                 />
         </motion.div>
         <div className='flex flex-col xl:flex-row xl:space-x-5'>
-
 
         <Link href="#about">
         <button className='text-gray-500 text-2xl border-opacity-10'>About</button>

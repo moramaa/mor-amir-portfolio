@@ -1,123 +1,119 @@
 import React, { useState } from 'react'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import Image from 'next/image';
 import { Project } from '../../typings';
 import { urlFor } from '../../sanity.cli';
+import Card from '../Card';
 
 
 type Props = {
-  project: Project
+  projects: Project[]
 }
 
-const TapCard = ({ project }: Props) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggleOpen = () => setIsOpen(!isOpen);
+const TapCard = ({ projects }: Props) => {
+
+  const [show, setShow] = useState(false);
+  const [info, setinfo] = useState<string>();
+  // animation for list
+  const container = {
+    hidden: { opacity: 1, scale: 0 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.2,
+      },
+    },
+  };
+  const item = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+    },
+  };
+  //  animation for  popup 
+  const variants = {
+    visible: {
+      scale: 1.5,
+      boxShadow: "10px 10px 0 rgba(0, 0, 0, 0.2)",
+      y: -10,
+      x: -100,
+      cursor: "pointer",
+      transition: { duration: 1, type: "spring" },
+    },
+    hidden: { scale: 1, opacity: 0 },
+  };
 
   return (
-    <article className="flex flex-col top-26 rounded-lg items-center space-y-7 flex-shrink
-     min-h-max
-      snap-center
-     Obg-[#292929] hover:  opacity-80  cursor-pointer transition-opacity duration-200 overflow-hidden">
-      <motion.div layout
-        key="modal1"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+    <section className="container mx-auto mt-5">
+      <motion.ul
+        style={{
+          filter: show ? "blur(1px)" : "none",
+        }}
+        className="row d-flex p-10 justify-content-center align-items-center
+         lg:flex flex-row "
+        variants={container}
+        initial="hidden"
+        animate="visible"
+      >
+        {projects.map((project) => {
+          return (
+            <>
+              <motion.li
+                layout
+                className="col-lg-5 "
+                onClick={() => {
+                  setShow(!show);
+                  setinfo(project._id);
+                }}
+                variants={item}
+              >
+          
 
-        exit={{ opacity: 0, transition: { duration: 1 } }}
-
-        onClick={toggleOpen} >
-
-        <div className="h-24 w-24 relative">
-               <h4>{project.title} </h4>
-                <img
-                  src={urlFor(project?.image).url()}
-                  alt="Picture of the author"
-                />
-              </div>
-        {isOpen &&
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 , scale: 1.5,
-            }}
-           
-            onClick={toggleOpen}
-            className="flex flex-col rounded-lg items-center
-                       min-h-fit
-                       min-w-fit
-                       bg-[#474242] 
-                        hover: opacity-100 cursor-pointer transition-opacity duration-200 overflow-hidden"
-          >
-
-            <motion.button onClick={() => setIsOpen(true)}>
+<a href="#" style={{ borderRadius: "2rem" }} className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+    <h5 style={{ top: "30%", left: "40%",}} className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{project.title}</h5>
+    <p className="font-normal text-gray-700 dark:text-gray-400">{project.subSummary}</p>
+</a>
 
               
-              <motion.h5 className='text-gray-500 text-lg z-100'>{project.summary}</motion.h5>
+                 
+              </motion.li>
+            </>
+          );
+        })}
+      </motion.ul>
 
-              <div className='flex flex-row'>
-                {project?.technologies.map(technologie => (
-                  <img
-                    className="h-10 w-10 rounded-full"
-                    src={urlFor(technologie.image).url()}
-                    alt=""
-                  />
-                ))}
-              </div>
-
-            </motion.button>
-          </motion.div>
-        }
-      </motion.div>
-    </article>
+      <AnimatePresence>
+        {show && (
+          <>
+            <motion.div
+              // className="block  p-6
+              //   w-3/5 md:w-3/6 lg:w-4/12
+              //  bg-gray-400 border border-gray-200 rounded-lg shadow hover:bg-gray-200 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 "
+              style={{
+                position: "fixed",
+                top: "30%",
+                left: "40%",
+              }}
+              onClick={() => {
+                setShow(!show);
+              }}
+              variants={variants}
+              animate={show ? "visible" : "hidden"}
+              exit={{ scale: 1, opacity: 0 }}
+            >
+              {projects
+                .filter(item => item._id === info)
+                .map(project =>
+                  <Card summary={project.summary} title={project.title} image={project.image}/>
+                )}
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </section>
   );
 }
-
-// function Item() {
-//   const [isOpen, setIsOpen] = useState(false);
-//   const toggleOpen = () => setIsOpen(!isOpen);
-//   const variants = {
-//     visible: { opacity: 1 },
-//     hidden: { opacity: 0 },
-//   }
-//   return (      
-//           <motion.div layout  
-//             key="modal1"
-//           initial={{ opacity: 0 }}
-//           animate={{ opacity: 1 }}
-
-//           style={{ height: isOpen ? "h-[2px]  md:h-[30px] xl:h-[5px]" : "h-[20px]  md:h-[30px] xl:h-[50px]",width: isOpen ? "150px" : "500px",backgroundColor:'blue',borderRadius: 10,zIndex:1  }}
-
-//           onClick={toggleOpen} >
-//                 <AnimatePresence>
-//                 <Image 
-//                   className="border border-green-500 object-cover 
-//                   h-[2px] w-[2px] md:w-[30px] md:h-[30px] xl:w-[5px] xl:h-[5px]
-//                   filter group-hover:grayscale transition duration-300 ease-in-out rounded-full "
-//                   src={react} alt="" />
-//                   <h5>samery of the project </h5>
-//                   {!isOpen && 
-//                 <motion.button onClick={() => setIsOpen(true)}>
-//                 <motion.h5 className=''>more bla bla bla bala bal bal bal  fxgxfg gfdfg </motion.h5>
-//                 </motion.button>
-
-//                }</AnimatePresence>
-//           </motion.div>
-// );
-// }
-
-// function Content() {
-// return (
-//             <motion.div  
-//             layout
-//             key="modal"
-//             initial={{ opacity: 0, borderRadius: 10,  }}
-//             animate={{ opacity: 1, }}
-//             style={{ height:"300px",width:'300px',z:1,alignContent:'start', backgroundColor:'whitesmoke' }}
-//             exit={{ opacity: 0 }}
-
-//             >
-//               <motion.h5 className=''>more abut the project more abut the project more abut the project</motion.h5>
-//             </motion.div>
-// );
-// }
-
-export default TapCard
+export default TapCard;

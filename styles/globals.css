@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.heroBlock {
+    
+    background-position: 50% 100%;
+    background-size: cover;
+    height: 100vh;
+  }
+  .heroBlock .content{
+    width: 650px;
+  }
+  .heroBlock .btnHolder{
+padding-top: 10px;  }
+  .heroBlock .container-fluid {
+    display: block !important;
+  }
+  
+  .heroBlock .ant-carousel,
+  .heroBlock .ant-carousel div {
+    height: 100%;
+  }
+  
+  .heroBlock .slick-dots li button {
+    background: #000 !important;
+  }
+  
+  .heroBlock .slick-dots li.slick-active button {
+    background: #1890ff !important;
+  }
