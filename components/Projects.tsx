@@ -18,7 +18,7 @@ const Projects = ({ projects }: Props) => {
         <Carousel draggable >
           {projects.map(item => {
             return (
-              <Card  >
+              <Card key={item._id}  >
 
                 <div key={item._id} className="container-fluid">
                   <h3>{item.title}</h3>
