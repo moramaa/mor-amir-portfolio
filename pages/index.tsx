@@ -52,20 +52,20 @@ const Home = ({ experiences, pageInfo, projects, skills, socials }: Props) => {
           <section id="experience" className='snap-start'>
             <WorkExperience experiences={experiences} />
           </section>
-          <section id="skills" className='snap-start'>
-            <Skills skills={skills} />
-          </section>
           <section id="project" className='snap-start'>
             <Projects projects={projects} />
+          </section>
+          <section id="skills" className='snap-start'>
+            <Skills skills={skills} />
           </section>
 
       <FloatButton.Group
       trigger="click"
       type="primary"
-      style={{ right: 24 }}
       icon={<UnorderedListOutlined  />}
+      
     >
-      <FloatButton tooltip="main" href="#main" description="main" icon={<ArrowUpOutlined   />} />
+      <FloatButton tooltip="main" href="#main"  icon={<ArrowUpOutlined   />} />
       <FloatButton tooltip="about" href="#about" icon={<UserOutlined   />} />
       <FloatButton tooltip="experience" href="#experience" icon={<ShoppingOutlined />} />
       <FloatButton tooltip="skills" href="#skills" icon={<CheckSquareOutlined />} />
