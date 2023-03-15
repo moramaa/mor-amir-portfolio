@@ -27,6 +27,7 @@ const Projects = ({ projects }: Props) => {
                       <div className="flex flex-row space-x-2 my-2 "> 
                         {item?.technologies.map(technologie => (
                           <img
+                          key={item._id}
                           className=" h-6 md:h-10 md:w-10 rounded-full"
                           src={urlFor(technologie.image).url()}
                           alt="img"
