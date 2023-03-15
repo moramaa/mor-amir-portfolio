@@ -24,8 +24,10 @@ const Main = ({pageInfo}: Props) => {
                 src={urlFor(pageInfo?.mainImage).url()}
                 alt="profile"
                 />
-        </motion.div>
-        <div className='flex flex-col xl:flex-row xl:space-x-5'>
+         </motion.div>
+
+         
+       {/* <div className='flex flex-col xl:flex-row xl:space-x-5'>
 
         <Link href="#about">
         <button className='text-gray-500 text-2xl border-opacity-10'>About</button>
@@ -40,7 +42,7 @@ const Main = ({pageInfo}: Props) => {
         <Link href="#project">
         <button className='text-gray-500 text-2xl border-opacity-10'>Project</button>
         </Link>
-      </div>
+      </div> */}
 
      </div> 
     

@@ -4,14 +4,17 @@
 
 .heroBlock {
     
-    background-position: 50% 100%;
-    background-size: cover;
-    height: 90vh;
+    /* background-position: 50% 100%; */
+    /* background-size: cover; */
+    height: 100vh;
     padding-top: 50px;
-    padding-bottom: 150px;
+    padding-bottom: 100px;
+    
+    
   }
   .heroBlock .content{
     /* width: 650px; */
+    height: 100%;
   }
   .heroBlock .btnHolder{
 }
@@ -22,7 +25,7 @@
   
   .heroBlock .ant-carousel,
   .heroBlock .ant-carousel div {
-    height: 100%;
+    
   }
   
   .heroBlock .slick-dots li button {

@@ -18,14 +18,23 @@ const Projects = ({ projects }: Props) => {
         <Carousel draggable >
           {projects.map(item => {
             return (
-              <Card key={item._id}  >
+              <Card key={item._id} style={{}} >
 
-                <div key={item._id} className="container-fluid">
-                  <h3>{item.title}</h3>
-                  <div className="content">
-                    <p>{item.summary}</p>
-                    <Button icon={<GithubOutlined />} href={item.linkToBuild} size="large"> git</Button>
-                  </div>
+                <div key={item._id} className="flex flex-col ">
+                  <h3 className=' mt-10 uppercase  text-gray-500 text-2xl '>{item.title}</h3>
+                  
+                    <p className=' mt-10  text-gray-500 text-1md '>{item.summary}</p>
+                      <div className="flex flex-row space-x-2 my-2 "> 
+                        {item?.technologies.map(technologie => (
+                          <img
+                          className=" h-6 md:h-10 md:w-10 rounded-full"
+                          src={urlFor(technologie.image).url()}
+                          alt="img"
+                          />
+                          ))}
+                    </div>
+
+                        <Button icon={<GithubOutlined />} href={item.linkToBuild} style={{width:'100px'}}> git</Button>
                
                 </div>
               </Card>
