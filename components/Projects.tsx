@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
-import TapCard from '../comon-components/projectCard/TapCard'
 import { Project } from '../typings'
 import { urlFor } from '../sanity.cli'
 import { Carousel, Card, Button } from 'antd'
