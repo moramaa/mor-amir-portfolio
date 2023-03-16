@@ -2,7 +2,6 @@ import { motion } from 'framer-motion'
 import React from 'react'
 import { SocialIcon } from 'react-social-icons'
 import { Social } from '../typings'
-import SideBar from './SideBar'
 
 type Props = {
   socials: Social[]

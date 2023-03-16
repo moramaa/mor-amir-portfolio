@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Project } from '../typings'
 import { urlFor } from '../sanity.cli'
 import { Carousel, Card, Button } from 'antd'

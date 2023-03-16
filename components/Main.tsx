@@ -1,10 +1,8 @@
 import React from 'react'
 
 import { motion } from 'framer-motion'
-import Link from 'next/link'
 import { PageInfo } from '../typings'
 import { urlFor } from '../sanity.cli'
-import Image from 'next/image'
 
 type Props = {pageInfo:PageInfo}
 

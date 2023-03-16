@@ -2,11 +2,9 @@ import { FloatButton } from 'antd'
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import About from '../components/About'
-import ExperienceAndSkills from '../components/ExperienceAndSkills'
 import Header from '../components/Header'
 import Main from '../components/Main'
 import Projects from '../components/Projects'
-import SideBar from '../components/SideBar'
 import Skills from '../components/Skills'
 import WorkExperience from '../components/WorkExperience'
 import { Experience, PageInfo, Project, Skill, Social } from '../typings'
@@ -16,7 +14,7 @@ import { fetchProjects } from '../utils/fetchProjects'
 import { fetchSkills } from '../utils/fetchSkills'
 import { fetchSocial } from '../utils/fetchSocials'
 
-import { UnorderedListOutlined, CommentOutlined, ArrowUpOutlined, UserOutlined, ShoppingOutlined, CheckSquareOutlined, ProfileOutlined  } from '@ant-design/icons';
+import { UnorderedListOutlined, ArrowUpOutlined, UserOutlined, ShoppingOutlined, CheckSquareOutlined, ProfileOutlined  } from '@ant-design/icons';
 
 type Props = {
   pageInfo: PageInfo;
